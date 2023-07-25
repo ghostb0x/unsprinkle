@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 
 const PhotoGridItem = ({ id, src, alt, tags }) => {
   return (
-    <article>
+    <ArticleWrapper>
       <Anchor href={`/photos/${id}`}>
         <picture>
           <source
@@ -31,10 +31,14 @@ const PhotoGridItem = ({ id, src, alt, tags }) => {
           <Tag key={tag}>{tag}</Tag>
         ))}
       </Tags>
-    </article>
+    </ArticleWrapper>
   );
 };
 
+const ArticleWrapper = styled.article`
+  overflow-x: clip;
+  text-overflow: ellipsis;
+`
 const Anchor = styled.a`
   text-decoration: none;
   color: inherit;
@@ -52,17 +56,23 @@ const Image = styled.img`
 `;
 
 const Tags = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
+  display: inline;
+  white-space: nowrap;  
   gap: 8px;
 `;
 
 const Tag = styled.li`
+  display: inline;
+  margin: 4px;
   padding: 4px 8px;
   background: var(--color-gray-300);
   font-size: 0.875rem;
   font-weight: 475;
   color: var(--color-gray-800);
+
+  &:first-of-type {
+    margin-left: 0px;
+  }
 `;
 
 export default PhotoGridItem;
