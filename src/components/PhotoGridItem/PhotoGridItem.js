@@ -36,8 +36,8 @@ const PhotoGridItem = ({ id, src, alt, tags }) => {
 };
 
 const ArticleWrapper = styled.article`
-  overflow-x: clip;
-  text-overflow: ellipsis;
+  /* overflow-x: clip; */
+  /* text-overflow: ellipsis; */
 `
 const Anchor = styled.a`
   text-decoration: none;
@@ -56,9 +56,11 @@ const Image = styled.img`
 `;
 
 const Tags = styled.ul`
-  display: inline;
-  white-space: nowrap;  
-  gap: 8px;
+  display: block;
+  overflow-x: clip;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 4px 0;
 `;
 
 const Tag = styled.li`
